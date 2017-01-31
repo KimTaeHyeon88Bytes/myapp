@@ -6,7 +6,9 @@ var app = express();
   res.send("Hello World!");
 });*/
 
-app.listen(8000, function() {
+var port = process.enc.PORT || 8000;
+
+app.listen(port, function() {
   console.log("server on!");
 });
 
