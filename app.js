@@ -1,4 +1,6 @@
 var express = require("express");
+var http = require("http");
+var fs = require("fs");
 
 var app = express();
 
@@ -6,9 +8,9 @@ var app = express();
   res.send("Hello World!");
 });*/
 
-//var port = process.enc.PORT || 8000;
+var port = process.env.PORT || 8000;
 
-app.listen(8000, function() {
+app.listen(port, function() {
   console.log("server on!");
 });
 
