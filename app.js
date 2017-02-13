@@ -1,16 +1,26 @@
 var express = require("express");
-var http = require("http");
-var fs = require("fs");
-
 var app = express();
+var http = require("http").Server(app);
+var fs = require("fs");
+var mongoose = require("mongoose");
 
 /*app.get("/", function(req, res) {
   res.send("Hello World!");
 });*/
 
+mongoose.connect("mongodb://kimth6617:88Bytes!@ds151279.mlab.com:51279/myapp");
+var db = mongoose.connection;
+
+db.once("open", function() {
+  console.log("DB connected!");
+});
+db.on("error", function(err) {
+  cosole.log("DB error : ", err);
+});
+
 var port = process.env.PORT || 8000;
 
-app.listen(port, function() {
+http.listen(port, function() {
   console.log("server on!");
 });
 
